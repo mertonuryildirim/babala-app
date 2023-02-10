@@ -5,11 +5,17 @@ import Summary from './components/Summary';
 import Table from './components/Table';
 
 function App() {
+    const chartStyles = {
+        display: 'flex',
+        width: '100vw',
+        height: '40vh',
+    };
+
     return (
         <div>
             <Summary />
             <Table />
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={chartStyles}>
                 <LineChart />
                 <PieChart />
             </div>

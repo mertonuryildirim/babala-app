@@ -21,32 +21,40 @@ ChartJS.register(
     Legend,
 );
 
-export const options = {
+const options = {
     responsive: true,
     plugins: {
         legend: {
             position: 'top',
         },
         title: {
-            display: true,
-            text: 'Chart.js Line Chart',
+            display: false,
+            text: '',
         },
     },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = [
+    '10 Şubat',
+    '11 Şubat',
+    '12 Şubat',
+    '13 Şubat',
+    '14 Şubat',
+    '15 Şubat',
+    '16 Şubat',
+];
 
-export const data = {
+const data = {
     labels,
     datasets: [
         {
-            label: 'Dataset 1',
+            label: 'Teyit Edilmiş',
             data: [12, 19, 3, 5, 2, 3],
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
         },
         {
-            label: 'Dataset 2',
+            label: 'Teyit Edilmemiş',
             data: [122, 193, 31, 52, 22, 33],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
