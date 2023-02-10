@@ -2,17 +2,15 @@ import { Container } from '@mui/system';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-import LineChart from '../components/LineChart';
-import PieChart from '../components/PieChart';
-import PieChartCity from '../components/PieChartCity';
 import Summary from '../components/Summary';
 import Table from '../components/Table';
+import PieChartRequest from '../components/PieChartRequest';
+import PieChartCity from '../components/PieChartCity';
 
 const chartStyles = {
     display: 'flex',
-    justifyContent: 'center',
-    gap: '20px',
-    height: '350px',
+    marginBottom: '20px',
+    gap: '10px',
 };
 
 function Dashboard() {
@@ -30,16 +28,23 @@ function Dashboard() {
             style={{
                 display: 'flex',
                 flexDirection: 'column',
+                maxWidth: '1300px',
             }}
         >
-            <h1 style={{ margin: '30px 0' }}>BaBaLa TV</h1>
+            <img
+                style={{ margin: '20px 0', width: '15%' }}
+                src="./logo.jpg"
+                alt="babala-logo"
+            />
+
             <Summary />
-            <Table data={data} />
+
             <div style={chartStyles}>
-                {/* <LineChart /> */}
-                <PieChart payload={data} />
+                <PieChartRequest payload={data} />
                 <PieChartCity payload={data} />
             </div>
+
+            <Table data={data} />
         </Container>
     );
 }

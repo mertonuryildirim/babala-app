@@ -7,8 +7,8 @@ const Summary = () => {
             style={{
                 display: 'flex',
                 width: '100%',
-                gap: '10px',
                 marginBottom: '20px',
+                gap: '10px',
             }}
         >
             <Paper
@@ -20,18 +20,18 @@ const Summary = () => {
                     padding: '16px',
                 }}
             >
-                <div>
-                    <p>Toplam Talep Sayısı</p>
-                    <p>0</p>
-                </div>
-                <div>
-                    <p>Teyit Edilmiş Talep Sayısı</p>
-                    <p>0</p>
-                </div>
-                <div>
-                    <p>Teyit Edilmemiş Talep Sayısı</p>
-                    <p>0</p>
-                </div>
+                <p style={{ display: 'flex', marginBottom: '10px' }}>
+                    <span>Toplam Talep Sayısı: &nbsp;</span>
+                    <span>0</span>
+                </p>
+                <p style={{ display: 'flex', marginBottom: '10px' }}>
+                    <span>Teyit Edilmiş Talep Sayısı: &nbsp;</span>
+                    <span>0</span>
+                </p>
+                <p style={{ display: 'flex' }}>
+                    <span>Teyit Edilmemiş Talep Sayısı: &nbsp;</span>
+                    <span>0</span>
+                </p>
             </Paper>
             <Paper
                 elevation={2}
@@ -43,20 +43,20 @@ const Summary = () => {
                 }}
             >
                 <div>
-                    <div>
-                        <p>Yönlendirme Bekleyen Sayısı</p>
-                        <p>0</p>
-                    </div>
+                    <p style={{ display: 'flex', marginBottom: '10px' }}>
+                        <span>Yönlendirme Bekleyen Sayısı: &nbsp;</span>
+                        <span>0</span>
+                    </p>
 
-                    <div>
-                        <p>Yönlendirilen Yardım Sayısı</p>
-                        <p>0</p>
-                    </div>
+                    <p style={{ display: 'flex', marginBottom: '10px' }}>
+                        <span>Yönlendirilen Yardım Sayısı: &nbsp;</span>
+                        <span>0</span>
+                    </p>
 
-                    <div>
-                        <p>Ulaşılan Yardım Sayısı</p>
-                        <p>0</p>
-                    </div>
+                    <p style={{ display: 'flex' }}>
+                        <span>Ulaşılan Yardım Sayısı: &nbsp;</span>
+                        <span>0</span>
+                    </p>
                 </div>
             </Paper>
         </div>
