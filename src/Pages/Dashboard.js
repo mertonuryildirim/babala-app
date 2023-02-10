@@ -15,8 +15,27 @@ const chartStyles = {
 
 function Dashboard() {
     const [data] = useState({
-        pieChartCity: [12, 19, 3, 5, 2, 3, 5, 2, 3, 7],
-        pieChartRequest: [12, 19, 3, 5, 2, 3, 4],
+        pie_chart_city: [
+            { label: 'Adana', value: 12 },
+            { label: 'Adıyaman', value: 19 },
+            { label: 'Diyarbakır', value: 3 },
+            { label: 'Gaziantep', value: 5 },
+            { label: 'Hatay', value: 2 },
+            { label: 'Kahramanmaraş', value: 3 },
+            { label: 'Kilis', value: 4 },
+            { label: 'Malatya', value: 123 },
+            { label: 'Osmaniye', value: 444 },
+            { label: 'Şanlıurfa', value: 3 },
+        ],
+        pie_chart_request: [
+            { label: 'Barınma', value: 12 },
+            { label: 'Isınma', value: 19 },
+            { label: 'Gıda', value: 3 },
+            { label: 'Yakıt', value: 5 },
+            { label: 'Bebek Bakım', value: 2 },
+            { label: 'Hijyen', value: 3 },
+            { label: 'İlaç', value: 4 },
+        ],
         summary: {
             total_request_count: 21,
             confirmed_request_count: 11,
@@ -45,8 +64,8 @@ function Dashboard() {
             <Summary summaryData={data.summary} />
 
             <div style={chartStyles}>
-                <PieChartRequest chartData={data.pieChartRequest} />
-                <PieChartCity chartData={data.pieChartCity} />
+                <PieChartRequest chartData={data.pie_chart_request} />
+                <PieChartCity chartData={data.pie_chart_city} />
             </div>
 
             <Table tableData={data.table} />

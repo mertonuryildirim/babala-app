@@ -5,24 +5,38 @@ import { Paper } from '@mui/material';
 import {
     PIE_CHART_CITY_BACKGROUND_COLORS,
     PIE_CHART_CITY_BORDER_COLORS,
-    PIE_CHART_CITY_LABELS,
 } from '../common/constants';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const initialChartData = {
+    labels: [],
+    datasets: [
+        {
+            label: 'Talep Sayısı',
+            data: [],
+            backgroundColor: PIE_CHART_CITY_BACKGROUND_COLORS,
+            borderColor: PIE_CHART_CITY_BORDER_COLORS,
+            borderWidth: 1,
+        },
+    ],
+};
+
 function PieChartCity({ chartData }) {
-    const [pieChartData] = useState({
-        labels: PIE_CHART_CITY_LABELS,
-        datasets: [
-            {
-                label: 'Talep Sayısı',
-                data: chartData,
-                backgroundColor: PIE_CHART_CITY_BACKGROUND_COLORS,
-                borderColor: PIE_CHART_CITY_BORDER_COLORS,
-                borderWidth: 1,
-            },
-        ],
-    });
+    const [pieChartData, setPieChartData] = useState(initialChartData);
+
+    useState(() => {
+        const tempChartData = { ...initialChartData };
+
+        if (!pieChartData.labels.length) {
+            chartData.forEach((data) => {
+                tempChartData.labels.push(data.label);
+                tempChartData.datasets[0].data.push(data.value);
+            });
+        }
+
+        setPieChartData(tempChartData);
+    }, []);
 
     return (
         <Paper
