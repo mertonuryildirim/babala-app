@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function PieChart() {
-  return (
-    <div>PieChart</div>
-  )
+    return <div>PieChart</div>;
 }
 
-export default PieChart
+export default PieChart;

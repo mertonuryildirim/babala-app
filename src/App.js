@@ -5,16 +5,16 @@ import Summary from './components/Summary';
 import Table from './components/Table';
 
 function App() {
-  return (
-    <div>
-      <Summary />
-      <Table />
-      <div style={{display:"flex", justifyContent:"space-between"}}>
-      <LineChart />
-      <PieChart />
-      </div>
-    </div>
-  );
+    return (
+        <div>
+            <Summary />
+            <Table />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <LineChart />
+                <PieChart />
+            </div>
+        </div>
+    );
 }
 
 export default App;
