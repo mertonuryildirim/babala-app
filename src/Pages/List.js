@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 
 function List() {
-    const [data, setData] = React.useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')

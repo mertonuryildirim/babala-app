@@ -1,24 +1,25 @@
 import React from 'react';
-
-const container = {
-    width: '100vw',
-    display: 'flex',
-    justifyContent: 'space-around',
-};
-
-const boxContainer = {
-    width: 500,
-    height: 250,
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: '#ddd',
-};
+import { Paper } from '@mui/material';
 
 const Summary = () => {
     return (
-        <div style={container}>
-            <div style={boxContainer}>
+        <div
+            style={{
+                display: 'flex',
+                width: '100%',
+                gap: '10px',
+                marginBottom: '20px',
+            }}
+        >
+            <Paper
+                elevation={2}
+                sx={{
+                    backgroundColor: 'white',
+                    width: '100%',
+                    borderRadius: '6px',
+                    padding: '16px',
+                }}
+            >
                 <div>
                     <p>Toplam Talep Sayısı</p>
                     <p>0</p>
@@ -31,21 +32,33 @@ const Summary = () => {
                     <p>Teyit Edilmemiş Talep Sayısı</p>
                     <p>0</p>
                 </div>
-            </div>
-            <div style={boxContainer}>
+            </Paper>
+            <Paper
+                elevation={2}
+                sx={{
+                    backgroundColor: 'white',
+                    width: '100%',
+                    borderRadius: '6px',
+                    padding: '16px',
+                }}
+            >
                 <div>
-                    <p>Yönlendirme Bekleyen Sayısı</p>
-                    <p>0</p>
+                    <div>
+                        <p>Yönlendirme Bekleyen Sayısı</p>
+                        <p>0</p>
+                    </div>
+
+                    <div>
+                        <p>Yönlendirilen Yardım Sayısı</p>
+                        <p>0</p>
+                    </div>
+
+                    <div>
+                        <p>Ulaşılan Yardım Sayısı</p>
+                        <p>0</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Yönlendirilen Yardım Sayısı</p>
-                    <p>0</p>
-                </div>
-                <div>
-                    <p>Ulaşılan Yardım Sayısı</p>
-                    <p>0</p>
-                </div>
-            </div>
+            </Paper>
         </div>
     );
 };

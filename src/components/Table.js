@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,35 +8,30 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(
-    city,
-    shelter,
-    warm,
-    food,
-    fuel,
-    babyCare,
-    hygiene,
-    medicine,
-) {
-    return { city, shelter, warm, food, fuel, babyCare, hygiene, medicine };
-}
+export default function BasicTable({ data }) {
+    const [cities, setCities] = useState([]);
 
-const rows = [
-    createData('Adana', 159, 6.0, 24, 4.0, 123123, 22, 12),
-    createData('Adıyaman', 237, 9.0, 37, 4.3, 123123, 22, 12),
-    createData('Diyarbakır', 262, 16.0, 24, 6.0, 123123, 22, 12),
-    createData('Gaziantep', 305, 3.7, 67, 4.3, 123123, 22, 12),
-    createData('Hatay', 356, 16.0, 49, 3.9, 123123, 22, 12),
-    createData('Kahramanmaraş', 356, 16.0, 49, 3.9, 123123, 22, 12),
-    createData('Kilis', 356, 16.0, 49, 3.9, 123123, 22, 12),
-    createData('Malatya', 356, 16.0, 49, 3.9, 123123, 22, 12),
-    createData('Osmaniye', 356, 16.0, 49, 3.9, 123123, 22, 12),
-    createData('Şanlıurfa', 356, 16.0, 49, 3.9, 123123, 22112, 12),
-];
+    useEffect(() => {
+        console.log(data);
+        if (!data || data.length === 0) return;
+        setCities(
+            data.reduce((acc, item) => {
+                const city = acc.find((city) => city.city === item.city);
 
-export default function BasicTable() {
+                if (!city) {
+                    const newCity = { city: item.city };
+                    newCity[item.help_category.trim()] = item.count;
+                    acc.push(newCity);
+                } else {
+                    city[item.help_category.trim()] = item.count;
+                }
+                return acc;
+            }, []),
+        );
+    }, [data, setCities]);
+
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={{ marginBottom: '20px' }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -50,9 +46,9 @@ export default function BasicTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {cities.map((row) => (
                         <TableRow
-                            key={row.name}
+                            key={row.city}
                             sx={{
                                 '&:last-child td, &:last-child th': {
                                     border: 0,
@@ -62,13 +58,27 @@ export default function BasicTable() {
                             <TableCell component="th" scope="row">
                                 {row.city}
                             </TableCell>
-                            <TableCell align="right">{row.shelter}</TableCell>
-                            <TableCell align="right">{row.warm}</TableCell>
-                            <TableCell align="right">{row.food}</TableCell>
-                            <TableCell align="right">{row.fuel}</TableCell>
-                            <TableCell align="right">{row.babyCare}</TableCell>
-                            <TableCell align="right">{row.hygiene}</TableCell>
-                            <TableCell align="right">{row.medicine}</TableCell>
+                            <TableCell align="right">
+                                {row['Barınma'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['Isınma'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['Gıda'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['Yakıt'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['Bebek Bakım'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['Hijyen'] || 0}
+                            </TableCell>
+                            <TableCell align="right">
+                                {row['İlaç'] || 0}
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
