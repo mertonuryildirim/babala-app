@@ -1,17 +1,4 @@
 // PIE CHART CITY CONSTANTS //
-export const PIE_CHART_CITY_LABELS = [
-    'Adana',
-    'Adıyaman',
-    'Diyarbakır',
-    'Gaziantep',
-    'Hatay',
-    'Kahramanmaraş',
-    'Kilis',
-    'Malatya',
-    'Osmaniye',
-    'Şanlıurfa',
-];
-
 export const PIE_CHART_CITY_BACKGROUND_COLORS = [
     'rgba(255, 99, 132, 0.2)',
     'rgba(54, 162, 235, 0.2)',
@@ -40,16 +27,6 @@ export const PIE_CHART_CITY_BORDER_COLORS = [
 // PIE CHART CITY CONSTANTS //
 
 // PIE CHART REQUEST CONSTANTS //
-export const PIE_CHART_REQUEST_LABELS = [
-    'Barınma',
-    'Isınma',
-    'Gıda',
-    'Yakıt',
-    'Bebek Bakım',
-    'Hijyen',
-    'İlaç',
-];
-
 export const PIE_CHART_REQUEST_BACKGROUND_COLORS = [
     'rgba(255, 99, 132, 0.2)',
     'rgba(54, 162, 235, 0.2)',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { Paper } from '@mui/material';
@@ -25,18 +25,16 @@ const initialChartData = {
 function PieChartCity({ chartData }) {
     const [pieChartData, setPieChartData] = useState(initialChartData);
 
-    useState(() => {
-        const tempChartData = { ...initialChartData };
+    useEffect(() => {
+        const tempChartData = JSON.parse(JSON.stringify(initialChartData));
 
-        if (!pieChartData.labels.length) {
-            chartData.forEach((data) => {
-                tempChartData.labels.push(data.label);
-                tempChartData.datasets[0].data.push(data.value);
-            });
-        }
+        chartData.forEach((data) => {
+            tempChartData.labels.push(data.label);
+            tempChartData.datasets[0].data.push(data.value);
+        });
 
         setPieChartData(tempChartData);
-    }, []);
+    }, [chartData]);
 
     return (
         <Paper
@@ -49,6 +47,7 @@ function PieChartCity({ chartData }) {
             }}
         >
             <h3 style={{ marginBottom: '15px' }}>Şehire Göre Talep Dağılımı</h3>
+
             <Pie data={pieChartData} />
         </Paper>
     );

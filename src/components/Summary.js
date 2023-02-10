@@ -22,15 +22,21 @@ const Summary = ({ summaryData }) => {
             >
                 <p style={{ display: 'flex', marginBottom: '10px' }}>
                     <span>Toplam Talep Sayısı: &nbsp;</span>
-                    <span>{summaryData.total_request_count}</span>
+                    <span>
+                        {summaryData && summaryData.total_request_count}
+                    </span>
                 </p>
                 <p style={{ display: 'flex', marginBottom: '10px' }}>
                     <span>Teyit Edilmiş Talep Sayısı: &nbsp;</span>
-                    <span>{summaryData.confirmed_request_count}</span>
+                    <span>
+                        {summaryData && summaryData.confirmed_request_count}
+                    </span>
                 </p>
                 <p style={{ display: 'flex' }}>
                     <span>Teyit Edilmemiş Talep Sayısı: &nbsp;</span>
-                    <span>{summaryData.unconfirmed_request_count}</span>
+                    <span>
+                        {summaryData && summaryData.unconfirmed_request_count}
+                    </span>
                 </p>
             </Paper>
             <Paper
@@ -46,18 +52,25 @@ const Summary = ({ summaryData }) => {
                     <p style={{ display: 'flex', marginBottom: '10px' }}>
                         <span>Yönlendirme Bekleyen Sayısı: &nbsp;</span>
                         <span>
-                            {summaryData.total_number_of_pending_referrals}
+                            {summaryData &&
+                                summaryData.total_number_of_pending_referrals}
                         </span>
                     </p>
 
                     <p style={{ display: 'flex', marginBottom: '10px' }}>
                         <span>Yönlendirilen Yardım Sayısı: &nbsp;</span>
-                        <span>{summaryData.number_of_assistance_referred}</span>
+                        <span>
+                            {summaryData &&
+                                summaryData.number_of_assistance_referred}
+                        </span>
                     </p>
 
                     <p style={{ display: 'flex' }}>
                         <span>Ulaşılan Yardım Sayısı: &nbsp;</span>
-                        <span>{summaryData.number_of_assistance_received}</span>
+                        <span>
+                            {summaryData &&
+                                summaryData.number_of_assistance_received}
+                        </span>
                     </p>
                 </div>
             </Paper>
