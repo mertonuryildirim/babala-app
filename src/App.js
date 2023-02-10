@@ -1,14 +1,19 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import LineChart from './components/LineChart';
+import PieChart from './components/PieChart';
+import Summary from './components/Summary';
+import Table from './components/Table';
 
 function App() {
   return (
-    <Stack direction="row" spacing={2}>
-    <Button>Primary</Button>
-    <Button disabled>Disabled</Button>
-    <Button href="#text-buttons">Link</Button>
-  </Stack>
+    <div>
+      <Summary />
+      <Table />
+      <div style={{display:"flex", justifyContent:"space-between"}}>
+      <LineChart />
+      <PieChart />
+      </div>
+    </div>
   );
 }
 
