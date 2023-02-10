@@ -4,12 +4,17 @@ import PieChart from '../components/PieChart';
 import Summary from '../components/Summary';
 import Table from '../components/Table';
 
+const chartStyles = {
+    display: 'flex',
+    height: '65vh',
+};
+
 function Dashboard() {
     return (
         <div>
             <Summary />
             <Table />
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={chartStyles}>
                 <LineChart />
                 <PieChart />
             </div>
