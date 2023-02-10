@@ -17,7 +17,14 @@ function Dashboard() {
     const [data] = useState({
         pieChartCity: [12, 19, 3, 5, 2, 3, 5, 2, 3, 7],
         pieChartRequest: [12, 19, 3, 5, 2, 3, 4],
-        summary: {},
+        summary: {
+            total_request_count: 21,
+            confirmed_request_count: 11,
+            unconfirmed_request_count: 10,
+            total_number_of_pending_referrals: 13,
+            number_of_assistance_referred: 6,
+            number_of_assistance_received: 7,
+        },
         table: [],
     });
 

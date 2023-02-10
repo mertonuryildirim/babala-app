@@ -70,3 +70,14 @@ export const PIE_CHART_REQUEST_BORDER_COLORS = [
     'rgba(55, 89, 14, 1)',
 ];
 // PIE CHART REQUEST CONSTANTS //
+
+export const TABLE_CELLS = [
+    'Şehir',
+    'Barınma',
+    'Isınma',
+    'Gıda',
+    'Yakıt',
+    'Bebek Bakım',
+    'Hijyen',
+    'İlaç',
+];

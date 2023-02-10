@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper } from '@mui/material';
 
-const Summary = () => {
+const Summary = ({ summaryData }) => {
     return (
         <div
             style={{
@@ -22,15 +22,15 @@ const Summary = () => {
             >
                 <p style={{ display: 'flex', marginBottom: '10px' }}>
                     <span>Toplam Talep Sayısı: &nbsp;</span>
-                    <span>0</span>
+                    <span>{summaryData.total_request_count}</span>
                 </p>
                 <p style={{ display: 'flex', marginBottom: '10px' }}>
                     <span>Teyit Edilmiş Talep Sayısı: &nbsp;</span>
-                    <span>0</span>
+                    <span>{summaryData.confirmed_request_count}</span>
                 </p>
                 <p style={{ display: 'flex' }}>
                     <span>Teyit Edilmemiş Talep Sayısı: &nbsp;</span>
-                    <span>0</span>
+                    <span>{summaryData.unconfirmed_request_count}</span>
                 </p>
             </Paper>
             <Paper
@@ -45,17 +45,19 @@ const Summary = () => {
                 <div>
                     <p style={{ display: 'flex', marginBottom: '10px' }}>
                         <span>Yönlendirme Bekleyen Sayısı: &nbsp;</span>
-                        <span>0</span>
+                        <span>
+                            {summaryData.total_number_of_pending_referrals}
+                        </span>
                     </p>
 
                     <p style={{ display: 'flex', marginBottom: '10px' }}>
                         <span>Yönlendirilen Yardım Sayısı: &nbsp;</span>
-                        <span>0</span>
+                        <span>{summaryData.number_of_assistance_referred}</span>
                     </p>
 
                     <p style={{ display: 'flex' }}>
                         <span>Ulaşılan Yardım Sayısı: &nbsp;</span>
-                        <span>0</span>
+                        <span>{summaryData.number_of_assistance_received}</span>
                     </p>
                 </div>
             </Paper>
