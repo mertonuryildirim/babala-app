@@ -1,24 +1,17 @@
 import * as React from 'react';
-import LineChart from './components/LineChart';
-import PieChart from './components/PieChart';
-import Summary from './components/Summary';
-import Table from './components/Table';
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
+
+import Dashboard from './Pages/Dashboard';
+import List from './Pages/List';
 
 function App() {
-    const chartStyles = {
-        display: 'flex',
-        width: '100vw',
-        height: '40vh',
-    };
-
     return (
         <div>
-            <Summary />
-            <Table />
-            <div style={chartStyles}>
-                <LineChart />
-                <PieChart />
-            </div>
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="list" element={<List />} />
+                <Route path="*" element={<div>404 Page Not Found</div>} />
+            </Routes>
         </div>
     );
 }
