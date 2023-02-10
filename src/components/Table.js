@@ -15,7 +15,10 @@ export default function BasicTable() {
                 <TableHead>
                     <TableRow>
                         {TABLE_CELLS.map((cell) => (
-                            <TableCell align={cell !== 'Şehir' ? 'right' : ''}>
+                            <TableCell
+                                key={cell}
+                                align={cell !== 'Şehir' ? 'right' : 'left'}
+                            >
                                 {cell}
                             </TableCell>
                         ))}
@@ -23,7 +26,7 @@ export default function BasicTable() {
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell>Adana</TableCell>
+                        <TableCell align="left">Adana</TableCell>
                         <TableCell align="right">{0}</TableCell>
                         <TableCell align="right">{0}</TableCell>
                         <TableCell align="right">{0}</TableCell>
