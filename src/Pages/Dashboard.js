@@ -1,6 +1,6 @@
 import { Container } from '@mui/system';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Summary from '../components/Summary';
 import Table from '../components/Table';
@@ -14,14 +14,12 @@ const chartStyles = {
 };
 
 function Dashboard() {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        fetch('https://f9b9-18-200-97-133.eu.ngrok.io/')
-            .then((response) => response.json())
-            .then((json) => setData(json))
-            .catch((error) => console.log(error));
-    }, []);
+    const [data] = useState({
+        pieChartCity: [12, 19, 3, 5, 2, 3, 5, 2, 3, 7],
+        pieChartRequest: [12, 19, 3, 5, 2, 3, 4],
+        summary: {},
+        table: [],
+    });
 
     return (
         <Container
@@ -37,14 +35,14 @@ function Dashboard() {
                 alt="babala-logo"
             />
 
-            <Summary />
+            <Summary summaryData={data.summary} />
 
             <div style={chartStyles}>
-                <PieChartRequest payload={data} />
-                <PieChartCity payload={data} />
+                <PieChartRequest chartData={data.pieChartRequest} />
+                <PieChartCity chartData={data.pieChartCity} />
             </div>
 
-            <Table data={data} />
+            <Table tableData={data.table} />
         </Container>
     );
 }
